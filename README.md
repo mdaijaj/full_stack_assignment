@@ -1,2 +1,2 @@
-# full_stack_assignment
-node and reactjs
+# zuqo_web_app
+react sidebar pagination and search 
