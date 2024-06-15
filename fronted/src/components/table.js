@@ -7,9 +7,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import SearchList from './search'
-// import Pagination from './pagination'
-
 
 const UserListPage = () => {
     const [achievementList, setAchievementList] = useState([])
@@ -31,7 +28,6 @@ const UserListPage = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState(records);
     const navigate = useNavigate()
-    const baseurl = "https://jsonplaceholder.typicode.com/users"
 
 
     const handleOpen = async (id) => {

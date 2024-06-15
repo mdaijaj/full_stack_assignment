@@ -1,9 +1,7 @@
 const UserDetail = require('../models/user_schema')
-const axios = require('axios');
-const token = 'ab4086ecd47c568d5ba5739d4078988f'; // Replace with your actual token
-const apiUrl = 'https://dev.pixelsoftwares.com/api.php'; // Replace with the API URL
 
 exports.createUserDetails = async (req, res) => {
+  
   const {
     name,
     email,
@@ -12,9 +10,11 @@ exports.createUserDetails = async (req, res) => {
     interests
   } = req.body;
 
-  try {
+  if(!name || !email || !mobile){
+    return res.send({message: "name or email or mobile is madetory field"})
+  }
 
-    console.log("req.body", req.body)
+  try {
     const UserdetailData = await UserDetail.create({
       name,
       email,
