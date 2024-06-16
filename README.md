@@ -1,2 +1,2 @@
-# zuqo_web_app
+# Suzuki Digital web_app
 react sidebar pagination and search 

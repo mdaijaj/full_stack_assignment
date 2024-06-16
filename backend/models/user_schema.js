@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     },
     mobile: {
         type: Number,
+        unique: true
     },
     email: {
         type: String,

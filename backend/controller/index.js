@@ -1,20 +1,30 @@
 const UserDetail = require('../models/user_schema')
 
 exports.createUserDetails = async (req, res) => {
-  
-  const {
-    name,
-    email,
-    mobile,
-    age,
-    interests
-  } = req.body;
-
-  if(!name || !email || !mobile){
-    return res.send({message: "name or email or mobile is madetory field"})
-  }
-
   try {
+    const {
+      name,
+      email,
+      mobile,
+      age,
+      interests
+    } = req.body;
+
+    if(!name || !email || !mobile){
+      return res.send({message: "name or email or mobile is madetory field"})
+    }
+
+    const userData = await UserDetail.findOne({
+      $or: [
+        { email: req.body.email },
+        { mobile: req.body.mobile }
+      ]
+    });
+
+    if(userData){
+      return res.send({message: "Email or Mobile is All ready Exist"})
+    }
+
     const UserdetailData = await UserDetail.create({
       name,
       email,
@@ -74,7 +84,6 @@ exports.editUserDetails = async (req, res) => {
   try {
 
     const userdata = await UserDetail.find({ _id: req.params.id });
-    // await uderdata.save({validateBeforeSave: false});
     if (userdata) {
       const updateData = await UserDetail.findByIdAndUpdate({ _id: req.params.id }, {
         $set: req.body

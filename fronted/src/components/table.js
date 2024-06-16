@@ -242,13 +242,15 @@ const UserListPage = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{ backgroundColor: "blue" }}>Achievement Details</Typography>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{ backgroundColor: "blue" }}>Users Details</Typography>
                     <Typography id="modal-modal-description">
                         {`
                         Id       :  ${achievedetail._id} 
                         name     :  ${achievedetail.name}
                         email    :  ${achievedetail.email}
                         mobile :  ${achievedetail.mobile}
+                        age    :  ${achievedetail.age}
+                        interests :  ${achievedetail.interests}
                         status   :  ${achievedetail.status}
                         `}
                     </Typography>
